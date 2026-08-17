@@ -406,6 +406,9 @@ header .navbar ul li a:hover {
 .about .row .content .box-container .box p span {
   color: #011aff;
 }
+.about .row .content .box-container .box p span#age {
+  color: inherit;
+}
 .resumebtn {
   margin-top: 6rem;
 }

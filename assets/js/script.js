@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+    // calculate age dynamically (born 3 Feb 2005)
+    function calculateAge(birthYear, birthMonth, birthDay) {
+        const today = new Date();
+        let age = today.getFullYear() - birthYear;
+        const monthDiff = today.getMonth() - (birthMonth - 1);
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDay)) {
+            age--;
+        }
+        return age;
+    }
+
+    const ageElement = document.getElementById("age");
+    if (ageElement) {
+        ageElement.textContent = calculateAge(2005, 2, 3);
+    }
+
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('.navbar').toggleClass('nav-toggle');
@@ -56,17 +72,6 @@ $(document).ready(function () {
 
 });
 
-document.addEventListener('visibilitychange',
-    function () {
-        if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Filipe Paiva";
-            $("#favicon").attr("href", "assets/images/favicon_xxx.png");
-        }
-        else {
-            document.title = "Come Back To Portfolio";
-            $("#favicon").attr("href", "assets/images/favhand.png");
-        }
-    });
 
 
 // <!-- typed js effect starts -->
